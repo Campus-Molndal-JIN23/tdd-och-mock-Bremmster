@@ -10,9 +10,10 @@ import static org.mockito.Mockito.when;
 
 class WeatherTest {
 
+    WeatherAPI weatherAPIMock;
     @BeforeEach
     void setUp() {
-        WeatherAPI weatherAPIMock = mock(WeatherAPI.class);
+        weatherAPIMock = mock(WeatherAPI.class);
 
         JSONObject mockResponse = new JSONObject();
 
@@ -78,5 +79,8 @@ class WeatherTest {
 
     @Test
     void getWeather() {
+        WeatherService sut = new WeatherService(weatherAPIMock);
+        System.out.println(sut);
+
     }
 }
