@@ -1,5 +1,6 @@
 package org.campusmolndal.weather;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
@@ -78,9 +79,9 @@ class WeatherTest {
 
 
     @Test
-    void getWeather() {
+    void getWeather() throws JsonProcessingException {
         WeatherService sut = new WeatherService(weatherAPIMock);
-        System.out.println(sut);
+        System.out.println(sut.getWeather().getName());
 
     }
 }
