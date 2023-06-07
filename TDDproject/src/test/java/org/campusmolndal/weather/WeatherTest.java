@@ -16,13 +16,11 @@ import static org.mockito.Mockito.when;
 
 class WeatherTest {
 
-    @Mock
-    WeatherAPI weatherAPIMock;
     WeatherService sut;
 
     @BeforeEach
     void setUp() {
-        weatherAPIMock = mock(WeatherAPI.class);
+        WeatherAPI weatherAPIMock = mock(WeatherAPI.class);
 
         JSONObject mockResponse = new JSONObject();
 
@@ -85,7 +83,7 @@ class WeatherTest {
         when(weatherAPIMock.getWeather()).thenReturn(mockResponse);
         sut = new WeatherService(weatherAPIMock);
     }
-    
+
     @Test
     void testCord() throws IOException {
         // arrange
