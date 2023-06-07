@@ -4,16 +4,24 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 
+import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class WeatherTest {
 
+    @Mock
     WeatherAPI weatherAPIMock;
+    WeatherService sut;
+
     @BeforeEach
-    void setUp() {
+    void setUp() throws IOException {
         weatherAPIMock = mock(WeatherAPI.class);
 
         JSONObject mockResponse = new JSONObject();
@@ -75,13 +83,43 @@ class WeatherTest {
         mockResponse.put("cod", 200);
 
         when(weatherAPIMock.getWeather()).thenReturn(mockResponse);
+        sut = new WeatherService(weatherAPIMock);
     }
 
 
     @Test
+    @Disabled
+    void testWeather() throws IOException {
+        // arrange
+        int expectedId = 804;
+        String expectedMain = "Clouds";
+        String expectedDescription = "overcast clouds";
+        String expectedIcon = "04d";
+        // Assert
+        /*
+        assertEquals(expectedId, sut.getWeatherReport().getWeather().getId());
+        assertEquals(expectedMain, sut.getWeatherReport().getWeather().getMain());
+        */
+    }
+
+    @Test
+    void testCord() throws IOException {
+        // arrange
+        double expectedLat = 57.71;
+        double expectedLon = 11.97;
+        // assert
+        assertEquals(expectedLat, sut.getWeatherReport().getCoord().getLat());
+        assertEquals(expectedLon, sut.getWeatherReport().getCoord().getLon());
+    }
     void getWeather() throws JsonProcessingException {
         WeatherService sut = new WeatherService(weatherAPIMock);
         System.out.println(sut.getWeather().getName());
 
+    @Test
+    void testTemp() throws IOException {
+        // arrange
+        double expected = 20.59;
+        // assert
+        assertEquals(expected, sut.getWeatherReport().getMain().getTemp());
     }
 }
