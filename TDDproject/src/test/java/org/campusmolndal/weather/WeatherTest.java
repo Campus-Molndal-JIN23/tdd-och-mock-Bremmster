@@ -1,11 +1,9 @@
 package org.campusmolndal.weather;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.campusmolndal.weather.mapper.Weather;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
@@ -87,23 +85,7 @@ class WeatherTest {
         when(weatherAPIMock.getWeather()).thenReturn(mockResponse);
         sut = new WeatherService(weatherAPIMock);
     }
-
-
-    @Test
-    @Disabled
-    void testWeather() throws IOException {
-        // arrange
-        int expectedId = 804;
-        String expectedMain = "Clouds";
-        String expectedDescription = "overcast clouds";
-        String expectedIcon = "04d";
-        // Assert
-        /*
-        assertEquals(expectedId, sut.getWeatherReport().getWeather().getId());
-        assertEquals(expectedMain, sut.getWeatherReport().getWeather().getMain());
-        */
-    }
-
+    
     @Test
     void testCord() throws IOException {
         // arrange
@@ -113,9 +95,6 @@ class WeatherTest {
         assertEquals(expectedLat, sut.getWeatherReport().getCoord().getLat());
         assertEquals(expectedLon, sut.getWeatherReport().getCoord().getLon());
     }
-    void getWeather() throws JsonProcessingException {
-        WeatherService sut = new WeatherService(weatherAPIMock);
-        System.out.println(sut.getWeather().getName());
 
     @Test
     void testTemp() throws IOException {
@@ -146,5 +125,4 @@ class WeatherTest {
         // Egentligen bör man använda assertEquals men du får man inte visat denna sorten av assert
         assertTrue((sut.getWeatherReport().getName().equals("Gothenburg")));
     }
-
 }
