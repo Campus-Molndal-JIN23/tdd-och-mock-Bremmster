@@ -1,6 +1,7 @@
 package org.campusmolndal.weather;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.campusmolndal.weather.mapper.Weather;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,8 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -21,7 +23,7 @@ class WeatherTest {
     WeatherService sut;
 
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp() {
         weatherAPIMock = mock(WeatherAPI.class);
 
         JSONObject mockResponse = new JSONObject();
@@ -122,4 +124,27 @@ class WeatherTest {
         // assert
         assertEquals(expected, sut.getWeatherReport().getMain().getTemp());
     }
+
+    @Test
+    void testWindSpeed() throws IOException {
+        // arrange
+        double expected = 5.14;
+        // assert
+        assertEquals(expected, sut.getWeatherReport().getWind().getSpeed());
+    }
+
+    @Test
+    void testCloudiness() throws IOException {
+        // arrange
+        ArrayList<Weather> sutWeather = sut.getWeatherReport().getWeather();
+        // assert
+        assertNotNull(sutWeather);
+    }
+
+    @Test
+    void testCity() throws IOException {
+        // Egentligen bör man använda assertEquals men du får man inte visat denna sorten av assert
+        assertTrue((sut.getWeatherReport().getName().equals("Gothenburg")));
+    }
+
 }

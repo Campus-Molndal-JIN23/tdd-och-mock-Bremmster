@@ -19,6 +19,5 @@ public class WeatherService {
         String apiResponse = String.valueOf(weatherAPI.getWeather());
         Root weatherReport = mapper.readValue(apiResponse, Root.class);
         return weatherReport;
-
     }
 }
