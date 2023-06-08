@@ -111,7 +111,7 @@ class WeatherTest {
     }
 
     @Test
-    void testCloudiness() throws IOException {
+    void testWeatherArray() throws IOException {
         // arrange
         ArrayList<Weather> sutWeather = sut.getWeatherReport().getWeather();
         // assert
@@ -122,5 +122,11 @@ class WeatherTest {
     void testCity() throws IOException {
         // Egentligen bör man använda assertEquals men du får man inte visat denna sorten av assert
         assertTrue((sut.getWeatherReport().getName().equals("Gothenburg")));
+    }
+    @Test
+    void testClouds() throws IOException {
+        String expected = "clouds";
+
+        assertEquals(expected, sut.getWeatherReport().getWeather().get(1));
     }
 }
