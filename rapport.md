@@ -28,9 +28,11 @@ Det var lurigt att skriva tester som inte använder assertEquals, min lösningen
 Beslutade mig för att låta test misslyckas som en del av lösningen. 
 
 ## Slutsatser
-Praktiskt med att mocka Api då kan man utveckla programmet med test driven development och minska antalet förfrågningar till api, det har möjlighet att spara pengar och tid. 
+Praktiskt med att mocka Api då kan man utveckla programmet med test driven development och minska antalet förfrågningar till api, det har möjlighet att spara pengar och tid.
+Smart kunna testa klasser isolerat från annan kod, det kan effektivisera felsökandet. 
 Api som ska anslutas kan vara under utveckling, om det har ett dokumenterat beteende kan man börja koda innan det finns skarpt.
-Fördel att all annan kod kan skapas före skarpa API klassen. Även bra att mocka databaser för att undvika att skriva/läsa i produktionsmiljö.
+Fördel att all annan kod kan skapas före skarpa API klassen. Även bra att mocka databaser för att undvika att skriva/läsa i produktionsmiljö. 
+
 
 ### Vad gick bra
 Uppgiften löst, uppfyller ställda krav och inlämnad i tid. 
@@ -42,4 +44,5 @@ Skapa och läsa Json. Mocka en hel klass.
 ### Vad hade ni gjort annorlunda om ni gjort om projektet
 Letat upp ett befintligt Api med beskrivit beteende och Mockat och skapat test på det.
 ### Vilka möjligheter ser du med de kunskaper du fått under kursen.
-Skriva kod och tester som bevisar att koden fungerar i de testade fallen. Möjlighet att mocka kod som har lång körtid för att snabba på utvecklandet. Ger även möjlighet att testa kod mot förutsättningar utanför förväntat beteende.    
+Skriva kod och tester som bevisar att koden fungerar i de testade fallen. Möjlighet att mocka kod som har lång körtid för att snabba på utvecklandet. Ger även möjlighet att testa kod mot förutsättningar utanför förväntat beteende. 
+Fördelen med att skriva tester innan koden är att det är direkt återkoppling på om lösningen fungerar. 
