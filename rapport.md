@@ -9,33 +9,37 @@ Kristian Karlson
 
 Mocka API för att testa funktionalitet 
 
-// todo skriv rapport, skriv testrapport klistra in bild över testfallen
-
 ### Vad ni har gjort
-Se projektet
+
 ## Arbetet och dess genomförande
 
 ### Vad som varit svårt
-Planering då delar skapas flera gånger bara föra att följa ett mönster är upplevs som onödigt merjobb. 
-Lösningar som uppdaterar alla ställen automatiskt har en tendens att tappa historiken i processen som leder fram till resultatet.
+Det är lurigaste att läsa data ifrån Json. Det är något som inte riktigt stämmer i mappningen av filen. Vilket är bra då finns det möjlighet att skapa test som misslyckas 
+
 ### Beskriv lite olika lösningar du gjort
-Tittade tidigt på gränsdragningen i projektet för att begränsa uppgiften. Det förskjuter ansvar till andra mjuk och hårdvarulösningar
+Mockade api testklassens @Before. Var lätt att skapa alla tester därefter.
+Använder Jackson object-mapper i WeatherService för att plocka ut data ifrån Json.
+
 ### Beskriv något som var besvärligt att få till
-Sortera backloggen till de olika sprintarna att göra saker i rätt ordning skapar körbar produkt mycket tidigare.
+Mappningen av Json filen har tagit mer tid än skapandet av testerna.
+Det var lurigt att skriva tester som inte använder assertEquals, min lösningen är forcerad och mer svårläst. 
 
 ### Beskriv om du fått byta lösning och varför i sådana fall
-Backlog sorterats om flera gånger.
+Beslutade mig för att låta test misslyckas som en del av lösningen. 
 
 ## Slutsatser
-Att jag trivs bättre i rollen som utvecklar en som projektledare.
+Praktiskt med att mocka Api då kan man utveckla programmet med test driven development och minska antalet förfrågningar till api, det har möjlighet att spara pengar och tid. 
+Api som ska anslutas kan vara under utveckling, om det har ett dokumenterat beteende kan man börja koda innan det finns skarpt.
+Fördel att all annan kod kan skapas före skarpa API klassen. Även bra att mocka databaser för att undvika att skriva/läsa i produktionsmiljö.
+
 ### Vad gick bra
-uppgiften löst uppfyller ställda krav och inlämnad i tid. 
+Uppgiften löst, uppfyller ställda krav och inlämnad i tid. 
 ### Vad gick dåligt
 
 ### Vad har du lärt dig
-Använda bara ett verktyg för planeringen av projektet, annars är det lätt att delar av projektet blir osynkat.
-Inte äns de bäst lagda planer överlever kontakt med verkligheten.
+Skapa och läsa Json. Mocka en hel klass.
+
 ### Vad hade ni gjort annorlunda om ni gjort om projektet
-Använt ett visuellt planeringsverktyg.
+Letat upp ett befintligt Api med beskrivit beteende och Mockat och skapat test på det.
 ### Vilka möjligheter ser du med de kunskaper du fått under kursen.
-Träna på ERD hjälper en i kommande projekt. 
+Skriva kod och tester som bevisar att koden fungerar i de testade fallen. Möjlighet att mocka kod som har lång körtid för att snabba på utvecklandet. Ger även möjlighet att testa kod mot förutsättningar utanför förväntat beteende.    
