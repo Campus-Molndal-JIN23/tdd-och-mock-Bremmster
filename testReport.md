@@ -18,8 +18,8 @@
 | testCity         | Kontrollera att testobjektet har rätt stad              | godkänt test                | Test lyckats                | Godkänd     | Inget problem identifierat |
 
 ## Slutsats
-Testerna täcker 100% av koden i WeatherService klassen
-![test coverage](/home/kristiank/Documents/Java/Assignments/tdd-och-mock-Bremmster/Test coverage Screenshot_20230608_01.png)
+Testerna täcker 100% av koden i WeatherService klassen 
+![test coverage](/home/kristiank/Documents/Java/Assignments/tdd-och-mock-Bremmster/assets/images/Test coverage Screenshot_20230608_01.png)
 
 Det är rimligt att anta att all information i Json objektet är tillgängligt för programmet med undantag för array Weather. 
 Objecktmappern med de klasser för att läsa Json filen fungerar inte korrekt.
