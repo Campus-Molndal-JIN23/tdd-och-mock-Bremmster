@@ -1,4 +1,10 @@
-## Dependency's
+## Filer
+
+testReport.md - innehåller testrapporten  
+rapport.md - projektrapporten som innehåller min reflektion på uppgiften.
+
+
+### Required libraries
 
 #### Junit 
 org.junit.jupiter 5.9.3
@@ -14,5 +20,5 @@ org.json 20230227
 #### Jackson
 com.fasterxml.jackson.core
 jackson-databind
-2.15.2<
+2.15.2
    
